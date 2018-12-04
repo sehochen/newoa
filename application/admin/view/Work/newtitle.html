@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bool系统</title>
+    <link href="__STATIC__/admin/css/bootstrap/css/bootstrap.css?2023" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <!--[if lte IE 6]>
+    <link rel="stylesheet" type="text/css" href="__STATIC__/admin/css/bootstrap/css/bootstrap-ie6.css?2023">
+    <![endif]-->
+    <!--[if lte IE 7]>
+    <link rel="stylesheet" type="text/css" href="__STATIC__/admin/css/bootstrap/css/ie.css?2023">
+    <![endif]-->
+    <link href="__STATIC__/admin/css/site.css?2023" rel="stylesheet" type="text/css" />
+    <script type="text/javascript">
+        var _root='http://form/index.php?s=/',_controller = 'index';
+    </script>
+    <script type="text/javascript" charset="utf-8" src="__STATIC__/admin/js/jquery-1.7.2.min.js?2023"></script>
+
+    <script type="text/javascript" charset="utf-8" src="__STATIC__/admin/js/ueditor/ueditor.config.js?2023"></script>
+    <script type="text/javascript" charset="utf-8" src="__STATIC__/admin/js/ueditor/ueditor.all.js?2023"> </script>
+    <script type="text/javascript" charset="utf-8" src="__STATIC__/admin/js/ueditor/lang/zh-cn/zh-cn.js?2023"></script>
+    <script type="text/javascript" charset="utf-8" src="__STATIC__/admin/js/ueditor/formdesign/leipi.formdesign.v4.js?2023"></script>
+</head>
+<body>
+    <div style="width: 80%;height: 500px;margin:0 auto; " class="new">
+
+        {volist name="list" id="vo"  }
+        <!--{:htmlspecialchars_decode ($vo['desc'])}-->
+           <textarea id="myFormDesign">
+            {$vo.desc}
+           </textarea>
+        {/volist}
+
+    </div>
+</body>
+<script>
+    var leipiEditor = UE.getEditor('myFormDesign',{
+        //allowDivTransToP: false,//阻止转换div 为p
+        toolleipi:true,//是否显示，设计器的 toolbars
+        textarea: 'design_content',
+        //这里可以选择自己需要的工具按钮名称,此处仅选择如下五个
+        toolbars:[[
+            'fullscreen', 'source', '|', 'undo', 'redo', '|','bold', 'italic', 'underline', 'fontborder', 'strikethrough',  'removeformat', '|', 'forecolor', 'backcolor', 'insertorderedlist', 'insertunorderedlist','|', 'fontfamily', 'fontsize', '|', 'indent', '|', 'justifyleft', 'justifycenter', 'justifyright', 'justifyjustify', '|',  'link', 'unlink',  '|',  'horizontal',  'spechars',  'wordimage', '|', 'inserttable', 'deletetable',  'mergecells', 'splittocells', 'print']],
+        //focus时自动清空初始化时的内容
+        //autoClearinitialContent:true,
+        //关闭字数统计
+        wordCount:false,
+        //关闭elementPath
+        elementPathEnabled:false,
+        //默认的编辑区域高度
+        initialFrameHeight:300
+        ///,iframeCssUrl:"css/bootstrap/css/bootstrap.css" //引入自身 css使编辑器兼容你网站css
+        //更多其他参数，请参考ueditor.config.js中的配置项
+    });
+
+
+
+
+</script>
+</html>

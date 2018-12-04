@@ -1,0 +1,86 @@
+﻿<!DOCTYPE html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+        <title></title>
+		<meta name="keywords" content="搜狗手机助手,搜狗手机助手网页版,手机软件,手机应用,手机游戏,应用市场,免费游戏,好玩的手机游戏,好用的手机软件" />
+        <meta name="description" content="搜狗手机助手网页版专注好用好玩的安卓手机软件游戏下载，致力于打造为最全面、最快捷的应用市场。帮您轻松找到您所需的软件游戏，让智能手机更有乐趣。">
+        <link rel="stylesheet" href="__STATIC__/admin/css/index_2f24a52e.css" />
+		<script src="__STATIC__/admin/js/modernizr-2.6.2.min.js"></script>
+        <link rel="stylesheet" href="__STATIC__/layui/css/layui.css">
+    <script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="__STATIC__/layer/layer.js"></script>
+    </head>
+    <body>
+
+
+	<div class="top">
+</div>
+
+    <div class="main">
+        <div class="row">
+            
+<div class="nav clearfix">
+
+	<div class="search">
+		<form action="http://zhushou.sogou.com/apps/search.html" method="get">
+		   <input type="text" name="key" placeholder="足记" maxlength="50" autocomplete="off"/>
+		   <button type="submit" hideFocus="true">找应用</button>
+		</form>
+	</div>
+</div>
+ 
+            <ul class="list clearfix">
+
+                {volist name="list" id="vo"  }
+				 <li  appid="16895" pkg="com.tencent.mobileqq">
+                    <a href="http://zhushou.sogou.com/apps/detail/16895.html" title="QQ">
+                        <img class="icon" src="__STATIC__/admin/picture/904e26929739dec84b6cb93fdae4edff.png" width="72" height="72">
+                        <p class="name">{$vo.name}</p>
+                    </a>
+                    <p style="float: right;margin-right: 40px;margin-top: 40px;color: red;">创建时间:{:date('Y-m-d',$vo['time'])}</p>
+                    <button style="float: right;margin-right: 40px;margin-top: 5px;" class="layui-btn layui-btn-radius" @click="show({:$vo['id']})">
+                        进入
+                    </button>
+
+                </li>
+                {/volist}
+
+			</ul>
+          
+        </div>
+    </div>
+
+	
+
+    <script type="text/javascript">
+		var data_url = "http://zhushou.sogou.com/apps/list/0-0.html?act=getapp&page=";
+		var max_page = "1000";
+
+
+		new  Vue({
+            el:'.main',
+            data:{
+
+            },
+            methods:{
+                show:function (id) {
+                    // var array={:json_encode($list)};
+                    // array.forEach(function(value,index,data){
+                    //     console.log(value.id);
+                    //     window.location.href = "{:url('admin/work/newtitle')}/id/"+value.id;
+                    // });
+                    window.location.href = "{:url('admin/work/newtitle')}/id/"+id;
+
+
+                }
+            }
+        })
+
+
+
+	</script>
+    </body>
+	<script type="text/javascript" src="__STATIC__/admin/js/index_306df61c.js"></script>
+</html>
